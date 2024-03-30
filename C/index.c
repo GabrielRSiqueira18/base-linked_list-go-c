@@ -12,26 +12,24 @@ typedef struct LinkedList {
 } linkedList;
 
 node* createNode(int data) {
-  node *newNode = (node*) malloc(sizeof(node*));
-
-  if (newNode = NULL) {
+  node *newNode = (node*) malloc(sizeof(node));
+  if (newNode == NULL) {
     printf("No memory!");
     exit(1);
   }
 
   newNode->prev = NULL;
   newNode->data = data; 
-  newNode->prev = NULL;
+  newNode->next = NULL;
 
   return newNode;
 }
 
 void insertNext(int data, linkedList **list) {
   node *newNode = createNode(data);
-
   linkedList *current = *list;
 
-  if (current->head = NULL) {
+  if (current->head == NULL) {
     current->head = newNode;
     return;
   } 
@@ -52,6 +50,7 @@ void insertPrev(int data, linkedList **list) {
 
   if (current->head == NULL) {
     current->head = newNode;
+    return;
   }
 
   newNode->next = current->head;
@@ -68,11 +67,19 @@ void display(linkedList *list) {
   node *current = list->head;
 
   while (current != NULL) {
-    printf("Valor: %d", current->data);
+    printf("Valor: %d\n", current->data);
     current = current->next;
   }
 }
 
 int main() {
-  
+  linkedList *list = (linkedList*) malloc(sizeof(linkedList));
+  list->head = NULL;
+
+  insertNext(10, &list);
+  insertNext(20, &list);
+  insertNext(30, &list);
+  insertNext(40, &list);
+
+  display(list);
 }
