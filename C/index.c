@@ -81,5 +81,10 @@ int main() {
   insertNext(30, &list);
   insertNext(40, &list);
 
+  insertPrev(1, &list);
+  insertPrev(2, &list);
+  insertPrev(3, &list);
+  insertPrev(4, &list);
+
   display(list);
 }
