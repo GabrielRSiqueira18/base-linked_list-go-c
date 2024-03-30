@@ -45,6 +45,22 @@ void insertNext(int data, linkedList **list) {
   newNode->prev = temp;
 }
 
+void insertPrev(int data, linkedList **list) {
+  node *newNode = createNode(data);
+
+  linkedList *current = *list;
+
+  if (current->head == NULL) {
+    current->head = newNode;
+  }
+
+  newNode->next = current->head;
+  current->head->prev = newNode;
+  current->head = newNode;
+}
+
+
+
 int main() {
   
 }
