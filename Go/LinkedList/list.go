@@ -17,6 +17,7 @@ func (l *LinkedList) InsertNext(data int) {
 
 	if l.head == nil {
 		l.head = newNode
+		return
 	}
 
 	current := l.head
@@ -50,7 +51,7 @@ func (l *LinkedList) Display() {
 	current := l.head
 
 	for current != nil {
-		fmt.Printf("Valor: %v", current.data)
+		fmt.Printf("Valor: %v\n", current.data)
 		current = current.next
 	}
 }
