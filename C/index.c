@@ -59,7 +59,19 @@ void insertPrev(int data, linkedList **list) {
   current->head = newNode;
 }
 
+void display(linkedList *list) {
+  if (list->head == NULL) {
+    printf("Empty List");
+    return;
+  }
 
+  node *current = list->head;
+
+  while (current != NULL) {
+    printf("Valor: %d", current->data);
+    current = current->next;
+  }
+}
 
 int main() {
   
